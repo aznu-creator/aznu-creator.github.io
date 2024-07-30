@@ -1,0 +1,180 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f8d7da, #fbeffb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border: 1px solid #f8c6d1;
+    position: relative;
+    overflow: hidden;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    color: #d63384;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: 'Dancing Script', cursive;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    color: #555;
+    font-family: 'Dancing Script', cursive;
+}
+
+input[type="date"] {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px;
+    font-size: 16px;
+    background: #fafafa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="date"]:hover,
+input[type="date"]:focus {
+    border-color: #e87c8d;
+    box-shadow: 0 4px 8px rgba(232, 124, 141, 0.3);
+    outline: none;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    background: #d63384;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    font-family: 'Dancing Script', cursive;
+}
+
+button:hover {
+    background-color: #c21e7a;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #a51a5c;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+    font-family: 'Dancing Script', cursive;
+}
+
+#specialMessage {
+    margin-top: 20px;
+    color: #d63384;
+    font-family: 'Dancing Script', cursive;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Confetti Styling */
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+    background: transparent;
+}
+
+/* Confetti Animation */
+@keyframes confetti {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #d63384;
+    opacity: 0.7;
+    border-radius: 50%;
+    animation: confetti 3s infinite;
+}
+
+/* Balloon Styling */
+#balloons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 15;
+    transform: translate(-50%, -50%);
+}
+
+.balloon {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #fff, #f79c42);
+    border-radius: 50% 50% 0 0;
+    animation: balloon-float 6s ease-in infinite;
+}
+
+.balloon:nth-child(odd) {
+    background: radial-gradient(circle at 30% 30%, #fff, #4a90e2);
+}
+
+.balloon:nth-child(even) {
+    background: radial-gradient(circle at 30% 30%, #fff, #b6d420);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background: #555;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes balloon-float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
