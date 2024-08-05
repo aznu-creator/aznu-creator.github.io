@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function calculateDays() {
     const today = new Date();
-    const birthday = new Date('2024-08-04T00:00:00'); // Test date set to today
+    const currentYear = today.getFullYear();
+    let birthday = new Date(`${currentYear}-08-04T00:00:00`);
+
+    // If today's date is after the birthday, set the date to next year
+    if (today > birthday) {
+        birthday = new Date(`${currentYear + 1}-08-04T00:00:00`);
+    }
 
     // Calculate the difference in milliseconds
     const differenceInMillis = birthday - today;
@@ -15,7 +21,7 @@ function calculateDays() {
     const secondsLeft = Math.floor((differenceInMillis % (1000 * 60)) / 1000);
 
     // Check if it's the special birthday
-    if (today.toDateString() === birthday.toDateString()) {
+    if (today.toDateString() === new Date(`${currentYear}-08-04T00:00:00`).toDateString()) {
         document.getElementById('specialMessage').classList.remove('hidden');
         document.getElementById('title').classList.add('hidden'); // Hide title on birthday
         startBalloons();
