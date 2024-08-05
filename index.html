@@ -5,6 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Days Until Your Birthday</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: url('https://thefreegfx.com/wp-content/uploads/2021/07/Love-hart-shape-particle-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8); /* Transparent black background */
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            width: 100%;
+            transition: transform 0.3s ease;
+            border: 1px solid #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+        }
+
+        p {
+            font-size: 18px;
+            color: #fff; /* White text color for better contrast */
+            font-weight: bold;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        #specialMessage {
+            margin-top: 20px;
+            color: #d63384;
+            font-family: 'Dancing Script', cursive;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #specialMessage blockquote {
+            font-size: 16px;
+            font-style: italic;
+            color: #d63384;
+            margin-top: 20px;
+            padding: 10px;
+            border-left: 4px solid #d63384;
+            background: rgba(255, 240, 240, 0.8);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Confetti Styling */
+        #confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 10;
+            background: transparent;
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: transparent;
+            border: 2px solid #d63384;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            background-image: url('hart-background.jpg'); /* Heart shape image */
+            background-size: cover;
+            animation: confetti 3s infinite;
+        }
+
+        @keyframes confetti {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        /* Balloon Styling */
+        #balloons {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 15;
+            transform: translate(-50%, -50%);
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #fff, #ff69b4); /* Pink Balloon */
+            border-radius: 50% 50% 0 0;
+            animation: balloon-float 6s ease-in infinite;
+        }
+
+        .balloon:nth-child(even) {
+            background: radial-gradient(circle at 30% 30%, #fff, #ff1493); /* Deep Pink Balloon */
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 60px;
+            background: #555;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes balloon-float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100vh); }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,7 +160,15 @@
         <p id="result"></p>
         <div id="specialMessage" class="hidden">
             <h2>🎈🎉 Happy Birthday, my baby Nureen! 🎈🎉</h2>
-            <p>🌸💖Today is your special day! Enjoy every moment. I love you my princess!🌸💖</p>
+            <p>
+                🌸💖 Today is your special day! Enjoy every moment. I love you my princess! 🌸💖
+            </p>
+            <p>
+                My dear princess and wife, happy birthday! I love you very much and appreciate you. I wish you many happy days and eternal happiness, with all my love, Aziz.
+            </p>
+            <blockquote>
+                "You are my sun, my moon, and all my stars"
+            </blockquote>
         </div>
         <div id="balloons" class="hidden"></div>
         <div id="confetti" class="hidden"></div>
